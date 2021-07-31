@@ -1,0 +1,32 @@
+.aside__nav {
+  min-height: 100%;
+  ul {
+    list-style: none;
+  }
+  li {
+    cursor: pointer;
+    width: 100%;
+  }
+  a {
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 0.25rem;
+    transition: 0.3s;
+    color: black;
+    display: block;
+    padding: 1rem;
+    font-weight: bold;
+
+    &:hover {
+      opacity: 0.7;
+      transform: translateX(10px);
+      background-color: honeydew;
+      border-left: 2px solid green;
+    }
+    &.active {
+      border-left: green 5px solid;
+
+      transform: translateX(0);
+    }
+  }
+}

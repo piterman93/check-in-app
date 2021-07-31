@@ -1,0 +1,27 @@
+.app {
+  display: flex;
+  flex-direction: column;
+
+  .header {
+    width: 90%;
+    margin: auto;
+
+    flex-basis: 10vh;
+    text-align: center;
+    line-height: 10vh;
+  }
+
+  .main {
+    display: flex;
+    width: 90%;
+    margin: 0 auto;
+    min-height: 80vh;
+    aside {
+      flex-basis: 15%;
+    }
+    .page {
+      padding: 1rem;
+      flex-grow: 1;
+    }
+  }
+}
