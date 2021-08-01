@@ -1,9 +1,26 @@
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router";
+
 import "../../styles/Header.scss";
 
+import { authActions } from "../../store/auth-slice";
+
 const Header = (props) => {
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+  const logoutHandler = () => {
+    localStorage.removeItem("logged");
+    dispatch(authActions.logout());
+    history.push("/");
+  };
+
   return (
-    <div className="header__image">
-      <h1>Welcome to a Check-in App!</h1>
+    <div className="header__control">
+      <h1>Check-in App</h1>
+      <button className="btn__logout" onClick={logoutHandler}>
+        Log out
+      </button>
     </div>
   );
 };

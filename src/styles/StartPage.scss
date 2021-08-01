@@ -1,0 +1,12 @@
+.section__start {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  h1 {
+    margin: 2rem;
+  }
+  h3 {
+    margin-top: 2rem;
+    text-decoration: underline;
+  }
+}

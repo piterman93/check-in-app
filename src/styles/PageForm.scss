@@ -1,0 +1,59 @@
+.form {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  min-height: 20%;
+  width: 40%;
+}
+
+.section__form {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid grey;
+  border-radius: 6px;
+  overflow: hidden;
+
+  &__title {
+    text-align: center;
+    background-color: rgb(216, 221, 223);
+    padding: 1.5rem;
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+  &__name {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 1rem 0 1rem;
+    & label {
+      margin-top: 1rem;
+      margin-bottom: 0.25rem;
+      font-weight: bold;
+    }
+    & input {
+      width: 50%;
+      height: 1.25rem;
+    }
+  }
+  &__flight {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 1rem 1rem 1rem;
+    & label {
+      margin-top: 1rem;
+      margin-bottom: 0.25rem;
+      font-weight: bold;
+    }
+    & select {
+      width: 50%;
+      height: 1.25rem;
+    }
+    & button {
+      margin: 1rem 0;
+      font-size: 1rem;
+      transform: scale(0.75);
+      width: 40%;
+    }
+  }
+}

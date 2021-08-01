@@ -5,9 +5,9 @@ import PageForm from "../styled-components/PageForm";
 
 import Card from "../UI/Card";
 
-const id = 1;
+const id = 4;
 
-const CheckInPage = (props) => {
+const AddPassengerServicePage = (props) => {
   const formInfo = FormData.filter((data) => data.id === id);
   const data = formInfo[0];
 
@@ -20,4 +20,4 @@ const CheckInPage = (props) => {
   );
 };
 
-export default CheckInPage;
+export default AddPassengerServicePage;

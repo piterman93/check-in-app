@@ -5,6 +5,7 @@ import "../../styles/Layout.scss";
 import SectionPage from "../pages/SectionPage";
 import Header from "./Header";
 import Navigation from "./Navigation";
+import Footer from "./Footer";
 
 const Layout = (props) => {
   return (
@@ -20,6 +21,9 @@ const Layout = (props) => {
           <SectionPage />
         </section>
       </main>
+      <footer>
+        <Footer />
+      </footer>
     </div>
   );
 };

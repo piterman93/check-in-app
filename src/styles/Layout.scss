@@ -1,27 +1,55 @@
 .app {
   display: flex;
   flex-direction: column;
+  width: 90%;
+  height: 95vh;
+  margin: auto;
+  position: relative;
+  top: 2.5vh;
+  box-shadow: 0 0 5px 0 black;
+  &::before {
+    content: "";
+    background-image: url("../images/background.jpg");
+    background-size: cover;
+    position: absolute;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.6;
+  }
 
   .header {
-    width: 90%;
+    width: 100%;
     margin: auto;
-
     flex-basis: 10vh;
     text-align: center;
     line-height: 10vh;
+    position: relative;
   }
 
   .main {
     display: flex;
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
     min-height: 80vh;
+    position: relative;
+
     aside {
-      flex-basis: 15%;
+      flex-basis: 20%;
+      border-left: 1px solid grey;
+      border-right: 1px solid grey;
+      overflow: hidden;
+      position: relative;
     }
     .page {
       padding: 1rem;
       flex-grow: 1;
+      border-right: 1px solid grey;
+      position: relative;
     }
   }
 }
