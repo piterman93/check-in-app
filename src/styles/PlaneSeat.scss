@@ -1,0 +1,21 @@
+.grid__seat {
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid black;
+  font-size: 0.75rem;
+  line-height: 2rem;
+  text-align: center;
+  margin: 1px 1px 0 0;
+  & available {
+    background-color: green;
+  }
+  & notAvailable {
+    background-color: red;
+  }
+  & infant {
+    background-color: blue;
+  }
+  & wheelchair {
+    background-color: yellow;
+  }
+}

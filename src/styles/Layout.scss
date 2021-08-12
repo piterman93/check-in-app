@@ -40,13 +40,14 @@
 
     aside {
       flex-basis: 20%;
+      min-width: 20%;
       border-left: 1px solid grey;
       border-right: 1px solid grey;
       overflow: hidden;
       position: relative;
     }
     .page {
-      padding: 1rem;
+      // padding: 1rem;
       flex-grow: 1;
       border-right: 1px solid grey;
       position: relative;
