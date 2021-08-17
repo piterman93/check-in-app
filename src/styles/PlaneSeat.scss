@@ -6,16 +6,16 @@
   line-height: 2rem;
   text-align: center;
   margin: 1px 1px 0 0;
-  & available {
-    background-color: green;
-  }
-  & notAvailable {
-    background-color: red;
-  }
-  & infant {
-    background-color: blue;
-  }
-  & wheelchair {
-    background-color: yellow;
-  }
+}
+.available {
+  background-color: green;
+}
+.notAvailable {
+  background-color: red;
+}
+.infant {
+  background-color: blue;
+}
+.wheelchair {
+  background-color: yellow;
 }

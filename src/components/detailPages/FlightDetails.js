@@ -26,6 +26,8 @@ const useStyles = makeStyles({
     minHeight: "10%",
     boxShadow: "0 0 5px 0 black",
     padding: "2rem",
+    display: "flex",
+    flexDirection: "column",
   },
   title: {
     fontWeight: "bold",

@@ -1,0 +1,31 @@
+.grid__legend_container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  flex-grow: 1;
+  margin-top: 4rem;
+  padding: 1rem;
+  .grid__legend_item {
+    display: flex;
+    flex-direction: row;
+    padding: 0.5rem;
+    & div {
+      height: 1rem;
+      width: 1rem;
+      margin-right: 0.5rem;
+    }
+  }
+  & :nth-child(1) div {
+    background-color: green;
+  }
+  & :nth-child(2) div {
+    background-color: red;
+  }
+  & :nth-child(3) div {
+    background-color: blue;
+  }
+  & :nth-child(4) div {
+    background-color: yellow;
+  }
+}
