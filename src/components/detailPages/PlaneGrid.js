@@ -1,13 +1,37 @@
-import "../../styles/PlaneGrid.scss";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
 
 import PlaneSeat from "./PlaneSeat";
 import PlaneGridLegend from "./PlaneGridLegend";
-import React from "react";
 
-const PlaneGrid = ({ flightDetails }) => {
+import Modal from "../UI/Modal";
+
+import "../../styles/PlaneGrid.scss";
+
+import { flightActions } from "../../store/flight-slice";
+
+const PlaneGrid = ({ flightDetails, passenger }) => {
+  const [showModal, setShowModal] = useState(false);
+  const [checkInID, setCheckInID] = useState("");
+
   const row1 = flightDetails[0].seatsRow1;
   const row2 = flightDetails[0].seatsRow2;
   const passengers = flightDetails[0].passengers;
+
+  const dispatch = useDispatch();
+
+  const showModalHandler = (id) => {
+    setCheckInID(id);
+    setShowModal(true);
+  };
+
+  const closeModalHandler = () => {
+    setShowModal(false);
+  };
+
+  const confirmCheckInHandler = () => {
+    dispatch(flightActions.passengerCheckIn({ checkInID, passenger }));
+  };
 
   //to fix
   const assignClass = (data) => {
@@ -15,16 +39,14 @@ const PlaneGrid = ({ flightDetails }) => {
     passengers.forEach((passenger) => {
       if (passenger.seat === data.toString()) {
         className = "notAvailable";
-        return;
       } else if (passenger.specServ.INF) {
         className = "infant";
-        return;
       } else if (passenger.specServ.WCH) {
         className = "wheelchair";
-        return;
       } else {
         className = "available";
       }
+      return className;
     });
     return className;
   };
@@ -33,7 +55,12 @@ const PlaneGrid = ({ flightDetails }) => {
     let number = i + 1;
     const className = assignClass(number);
     return (
-      <PlaneSeat key={number} className={className}>
+      <PlaneSeat
+        key={number}
+        id={number}
+        className={className}
+        onCheckIn={showModalHandler}
+      >
         {number}
       </PlaneSeat>
     );
@@ -44,25 +71,47 @@ const PlaneGrid = ({ flightDetails }) => {
     let number1 = number + i;
     const className = assignClass(number1);
     return (
-      <PlaneSeat key={number1} className={className}>
+      <PlaneSeat
+        key={number1}
+        id={number}
+        className={className}
+        onCheckIn={showModalHandler}
+      >
         {number1}
       </PlaneSeat>
     );
   });
 
-  return (
-    <div className="grid__control">
-      <div className="grid__container">
-        <p>Plane Front</p>
-        <div className="grid__seats">
-          <div className="grid__seats_row">{seatsRow1}</div>
-          <p>Walking Path</p>
-          <div className="grid__seats_row">{seatsRow2}</div>
+  let content;
+
+  if (showModal) {
+    content = (
+      <Modal
+        passenger={passenger}
+        checkInID={checkInID}
+        onClose={closeModalHandler}
+        onConfirm={confirmCheckInHandler}
+      />
+    );
+  }
+
+  if (!showModal) {
+    content = (
+      <div className="grid__control">
+        <div className="grid__container">
+          <p>Plane Front</p>
+          <div className="grid__seats">
+            <div className="grid__seats_row">{seatsRow1}</div>
+            <p>Walking Path</p>
+            <div className="grid__seats_row">{seatsRow2}</div>
+          </div>
         </div>
+        <PlaneGridLegend />
       </div>
-      <PlaneGridLegend />
-    </div>
-  );
+    );
+  }
+
+  return content;
 };
 
 export default PlaneGrid;

@@ -5,16 +5,22 @@ import { FlightData } from "../../flightData";
 import "../../styles/PageForm.scss";
 
 const PageForm = ({ name, title, onClick }) => {
-  const [selectValue, setSelectValue] = useState(FlightData[0].number);
+  const [selectFlight, setSelectFlight] = useState(FlightData[0].number);
+  const [selectPassenger, setSelectPassenger] = useState("");
 
   const submitHandler = (e) => {
     e.preventDefault();
-    onClick(selectValue);
+    onClick(selectFlight, selectPassenger);
   };
 
   const selectChangeHandler = (e) => {
-    const selectedOption = e.target.value;
-    setSelectValue(selectedOption);
+    const selectedFlight = e.target.value;
+    setSelectFlight(selectedFlight);
+  };
+
+  const selectPassengerHandler = (e) => {
+    const selectedPassenger = e.target.value;
+    setSelectPassenger(selectedPassenger);
   };
 
   return (
@@ -24,7 +30,12 @@ const PageForm = ({ name, title, onClick }) => {
         {name && (
           <div className="section__form__name">
             <label id="name">{name}</label>
-            <input type="text" id="name" />
+            <input
+              type="text"
+              id="name"
+              onChange={selectPassengerHandler}
+              value={selectPassenger}
+            />
           </div>
         )}
         <div className="section__form__flight">
@@ -32,7 +43,7 @@ const PageForm = ({ name, title, onClick }) => {
           <select
             id="flight"
             onChange={selectChangeHandler}
-            value={selectValue}
+            value={selectFlight}
           >
             <option value={FlightData[0].number}>{FlightData[0].number}</option>
             <option value={FlightData[1].number}>{FlightData[1].number}</option>

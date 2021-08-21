@@ -1,8 +1,17 @@
 import "../../styles/PlaneSeat.scss";
 
-const PlaneSeat = (props) => {
-  const classes = `grid__seat ${props.className}`;
-  return <div className={classes}>{props.children}</div>;
+const PlaneSeat = ({ className, children, onCheckIn, id }) => {
+  const classes = `grid__seat ${className}`;
+
+  const checkInHandler = () => {
+    onCheckIn(id);
+  };
+
+  return (
+    <div className={classes} onClick={checkInHandler}>
+      {children}
+    </div>
+  );
 };
 
 export default PlaneSeat;

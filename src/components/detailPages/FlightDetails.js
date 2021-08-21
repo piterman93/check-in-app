@@ -38,7 +38,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function FlightDetails({ option }) {
+export default function FlightDetails({ option, passenger }) {
   const classes = useStyles();
 
   const flightData = useSelector((state) => state.flight);
@@ -102,7 +102,7 @@ export default function FlightDetails({ option }) {
           ))}
         </TableBody>
       </Table>
-      <PlaneGrid flightDetails={flightDetails} />
+      <PlaneGrid flightDetails={flightDetails} passenger={passenger} />
     </TableContainer>
   );
 }
