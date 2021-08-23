@@ -31,7 +31,7 @@ export const FlightData = [
         name: " Halina Maniak",
         birthday: "19-04-1965",
         passport: "CCC111",
-        seat: "",
+        seat: "66",
         specServ: { INF: true },
       },
       {
@@ -39,7 +39,7 @@ export const FlightData = [
         name: "Jerzy Maniak",
         birthday: "19-04-1967",
         passport: "DDD111",
-        seat: "5",
+        seat: "",
         specServ: {},
       },
       {
@@ -47,7 +47,7 @@ export const FlightData = [
         name: "Sara Maniak",
         birthday: "19-04-2005",
         passport: "EEE111",
-        seat: "",
+        seat: "72",
         specServ: { WCH: true },
       },
       {
@@ -118,7 +118,7 @@ export const FlightData = [
         name: " Pawel Mol",
         birthday: "19-04-1965",
         passport: "CCC111",
-        seat: "",
+        seat: "54",
         specServ: { INF: true },
       },
       {
@@ -126,7 +126,7 @@ export const FlightData = [
         name: "Jerzy Maniak",
         birthday: "19-04-1967",
         passport: "DDD111",
-        seat: "16",
+        seat: "",
         specServ: {},
       },
       {
@@ -134,7 +134,7 @@ export const FlightData = [
         name: "Sara Maniak",
         birthday: "19-04-2005",
         passport: "EEE111",
-        seat: "",
+        seat: "64",
         specServ: { WCH: true },
       },
       {
@@ -168,9 +168,9 @@ export const FlightData = [
       40, 41, 42, 43, 44, 45, 46,
     ],
     seatsRow2: [
-      55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72,
-      73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90,
-      91, 92, 93, 94,
+      47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64,
+      65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82,
+      83, 84,
     ],
   },
 ];

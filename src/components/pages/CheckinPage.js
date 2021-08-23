@@ -13,6 +13,8 @@ const CheckInPage = (props) => {
   const [flightOption, setFlightOption] = useState("");
   const [passenger, setPassenger] = useState("");
 
+  const checkInNeeded = true;
+
   const formInfo = FormData.filter((data) => data.id === id);
   const data = formInfo[0];
 
@@ -35,7 +37,11 @@ const CheckInPage = (props) => {
         </Card>
       )}
       {!showTable && (
-        <FlightDetails option={flightOption} passenger={passenger} />
+        <FlightDetails
+          option={flightOption}
+          passenger={passenger}
+          checkInNeeded={checkInNeeded}
+        />
       )}
     </React.Fragment>
   );

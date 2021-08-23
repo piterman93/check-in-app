@@ -38,11 +38,10 @@ const useStyles = makeStyles({
   },
 });
 
-export default function FlightDetails({ option, passenger }) {
+export default function FlightDetails({ option, passenger, checkInNeeded }) {
   const classes = useStyles();
 
   const flightData = useSelector((state) => state.flight);
-
   const flightDetails = flightData.filter((data) => data.number === option);
 
   function createData(number, plane, DEP, ARR, DEP_time, ARR_time) {
@@ -102,7 +101,11 @@ export default function FlightDetails({ option, passenger }) {
           ))}
         </TableBody>
       </Table>
-      <PlaneGrid flightDetails={flightDetails} passenger={passenger} />
+      <PlaneGrid
+        flightDetails={flightDetails}
+        passenger={passenger}
+        checkInNeeded={checkInNeeded}
+      />
     </TableContainer>
   );
 }

@@ -8,9 +8,21 @@ const PageForm = ({ name, title, onClick }) => {
   const [selectFlight, setSelectFlight] = useState(FlightData[0].number);
   const [selectPassenger, setSelectPassenger] = useState("");
 
+  const passengers = [...FlightData[0].passengers, ...FlightData[1].passengers];
+  const availablePassenger = passengers.find(
+    (pass) => pass.name.toLowerCase() === selectPassenger.toLowerCase()
+  );
+
   const submitHandler = (e) => {
     e.preventDefault();
-    onClick(selectFlight, selectPassenger);
+    if (availablePassenger || !name) {
+      onClick(selectFlight, selectPassenger);
+    } else {
+      setSelectPassenger("");
+      return alert(
+        `"There is no ${selectPassenger} on the board, please check it!"`
+      );
+    }
   };
 
   const selectChangeHandler = (e) => {

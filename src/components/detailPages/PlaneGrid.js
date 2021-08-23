@@ -10,7 +10,7 @@ import "../../styles/PlaneGrid.scss";
 
 import { flightActions } from "../../store/flight-slice";
 
-const PlaneGrid = ({ flightDetails, passenger }) => {
+const PlaneGrid = ({ flightDetails, passenger, checkInNeeded }) => {
   const [showModal, setShowModal] = useState(false);
   const [checkInID, setCheckInID] = useState("");
 
@@ -18,7 +18,7 @@ const PlaneGrid = ({ flightDetails, passenger }) => {
   const row2 = flightDetails[0].seatsRow2;
   const passengers = flightDetails[0].passengers;
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const showModalHandler = (id) => {
     setCheckInID(id);
@@ -30,25 +30,44 @@ const PlaneGrid = ({ flightDetails, passenger }) => {
   };
 
   const confirmCheckInHandler = () => {
-    dispatch(flightActions.passengerCheckIn({ checkInID, passenger }));
+    // dispatch(flightActions.passengerCheckIn({ checkInID, passenger }));
   };
 
-  //to fix
   const assignClass = (data) => {
-    let className;
-    passengers.forEach((passenger) => {
-      if (passenger.seat === data.toString()) {
-        className = "notAvailable";
-      } else if (passenger.specServ.INF) {
-        className = "infant";
-      } else if (passenger.specServ.WCH) {
-        className = "wheelchair";
-      } else {
-        className = "available";
-      }
-      return className;
-    });
-    return className;
+    let newPassengerNotAvailable;
+    let newPassengerInfant;
+    let newPassengerWheelchair;
+
+    const notAvailable = passengers.find(
+      (passenger) =>
+        passenger.seat === data.toString() &&
+        !passenger.specServ.INF &&
+        !passenger.specServ.WCH
+    );
+    if (notAvailable) {
+      newPassengerNotAvailable = {
+        ...notAvailable,
+        className: "notAvailable",
+      };
+      return newPassengerNotAvailable.className;
+    }
+    const infant = passengers.find(
+      (passenger) =>
+        passenger.seat === data.toString() && passenger.specServ.INF
+    );
+    if (infant) {
+      newPassengerInfant = { ...infant, className: "infant" };
+      return newPassengerInfant.className;
+    }
+    const wheelchair = passengers.find(
+      (passenger) =>
+        passenger.seat === data.toString() && passenger.specServ.WCH
+    );
+    if (wheelchair) {
+      newPassengerWheelchair = { ...wheelchair, className: "wheelchair" };
+      return newPassengerWheelchair.className;
+    }
+    if ((!notAvailable, !infant, !wheelchair)) return "available";
   };
 
   const seatsRow1 = row1.map((row, i) => {
@@ -60,6 +79,7 @@ const PlaneGrid = ({ flightDetails, passenger }) => {
         id={number}
         className={className}
         onCheckIn={showModalHandler}
+        checkInNeeded={checkInNeeded}
       >
         {number}
       </PlaneSeat>
@@ -76,6 +96,7 @@ const PlaneGrid = ({ flightDetails, passenger }) => {
         id={number}
         className={className}
         onCheckIn={showModalHandler}
+        checkInNeeded={checkInNeeded}
       >
         {number1}
       </PlaneSeat>

@@ -7,12 +7,10 @@ export const FormData = [
   {
     id: 2,
     title: "Flight Details",
-    name: "",
   },
   {
     id: 3,
     title: "Display Passengers List",
-    name: "",
   },
   {
     id: 4,

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FormData } from "../../formData";
+import { FlightData } from "../../flightData";
 
 import PassengerList from "../detailPages/PassengerList";
 
@@ -25,12 +26,7 @@ const PassengersListPage = (props) => {
     <React.Fragment>
       {!showList && (
         <Card className="form">
-          <PageForm
-            id={data.id}
-            title={data.title}
-            name={data.name}
-            onClick={showListHandler}
-          />
+          <PageForm id={data.id} title={data.title} onClick={showListHandler} />
         </Card>
       )}
       {showList && <PassengerList option={option} />}

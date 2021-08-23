@@ -12,6 +12,7 @@ const id = 2;
 const FlightDetailsPage = (props) => {
   const [showTable, setShowTable] = useState(true);
   const [flightOption, setFlightOption] = useState("");
+  const [checkInNeeded, setCheckInNeeded] = useState(true);
 
   const formInfo = FormData.filter((data) => data.id === id);
   const data = formInfo[0];
@@ -19,6 +20,7 @@ const FlightDetailsPage = (props) => {
   const showTableHandler = (data) => {
     setShowTable(false);
     setFlightOption(data);
+    setCheckInNeeded(false);
   };
 
   return (
@@ -28,12 +30,13 @@ const FlightDetailsPage = (props) => {
           <PageForm
             id={data.id}
             title={data.title}
-            name={data.name}
             onClick={showTableHandler}
           />
         </Card>
       )}
-      {!showTable && <FlightDetails option={flightOption} />}
+      {!showTable && (
+        <FlightDetails option={flightOption} checkInNeeded={checkInNeeded} />
+      )}
     </React.Fragment>
   );
 };

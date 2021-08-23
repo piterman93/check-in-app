@@ -1,10 +1,12 @@
 import "../../styles/PlaneSeat.scss";
 
-const PlaneSeat = ({ className, children, onCheckIn, id }) => {
+const PlaneSeat = ({ className, children, onCheckIn, id, checkInNeeded }) => {
   const classes = `grid__seat ${className}`;
 
   const checkInHandler = () => {
-    onCheckIn(id);
+    if (checkInNeeded) {
+      onCheckIn(id);
+    } else return;
   };
 
   return (
