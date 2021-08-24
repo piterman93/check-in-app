@@ -11,17 +11,17 @@ const id = 1;
 const CheckInPage = (props) => {
   const [showTable, setShowTable] = useState(true);
   const [flightOption, setFlightOption] = useState("");
-  const [passenger, setPassenger] = useState("");
+  const [passengerName, setPassengerName] = useState("");
 
   const checkInNeeded = true;
 
-  const formInfo = FormData.filter((data) => data.id === id);
-  const data = formInfo[0];
+  const formInfo = FormData.find((data) => data.id === id);
+  const data = formInfo;
 
   const showTableHandler = (flight, pass) => {
     setShowTable(false);
     setFlightOption(flight);
-    setPassenger(pass);
+    setPassengerName(pass);
   };
 
   return (
@@ -39,7 +39,7 @@ const CheckInPage = (props) => {
       {!showTable && (
         <FlightDetails
           option={flightOption}
-          passenger={passenger}
+          passengerName={passengerName}
           checkInNeeded={checkInNeeded}
         />
       )}

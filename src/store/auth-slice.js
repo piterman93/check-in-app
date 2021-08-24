@@ -15,6 +15,7 @@ const authSlice = createSlice({
       state.isOnSite = true;
       localStorage.setItem("logged", state.isOnSite);
     },
+
     adminLogin(state) {
       state.isLogged = true;
       state.isAdmin = true;

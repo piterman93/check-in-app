@@ -7,22 +7,45 @@ const Backdrop = ({ onClose }) => {
   return <div className="backdrop" onClick={onClose}></div>;
 };
 
-const Overlay = ({ passenger, ID, onClose, onConfirm }) => {
+const Overlay = ({
+  passengerName,
+  ID,
+  onClose,
+  onConfirmCheckIn,
+  onUndoCheckIn,
+  passCheckedIn,
+}) => {
   return (
     <div className="overlay">
-      <h2>
-        {" "}
-        Are you sure you want to check in <span>{passenger}</span> with seat
-        number: <span>{ID}</span> ?
-      </h2>
+      {!passCheckedIn && (
+        <h2>
+          {" "}
+          Are you sure you want to check in/change place for{" "}
+          <span>{passengerName}</span> for seat number: <span>{ID}</span> ?
+        </h2>
+      )}
+      {passCheckedIn && (
+        <h2>
+          {" "}
+          Are you sure you want to undo check in passenger{" "}
+          <span>{passengerName}</span> from seat number: <span>{ID}</span> ?
+        </h2>
+      )}
 
       <div className="overlay__actions">
         <button type="button" onClick={onClose}>
           Close
         </button>
-        <button className="submit" onClick={onConfirm}>
-          Confirm
-        </button>
+        {!passCheckedIn && (
+          <button className="submit" onClick={onConfirmCheckIn}>
+            Confirm
+          </button>
+        )}
+        {passCheckedIn && (
+          <button className="submit" onClick={onUndoCheckIn}>
+            Undo Check in
+          </button>
+        )}
       </div>
     </div>
   );
@@ -30,16 +53,25 @@ const Overlay = ({ passenger, ID, onClose, onConfirm }) => {
 
 const portalElement = document.getElementById("overlays");
 
-const Modal = ({ passenger, checkInID, onClose, onConfirm }) => {
+const Modal = ({
+  passengerName,
+  checkInID,
+  onClose,
+  onConfirmCheckIn,
+  onUndoCheckIn,
+  passCheckedIn,
+}) => {
   return (
     <Fragment>
       {ReactDOM.createPortal(<Backdrop onClose={onClose} />, portalElement)}
       {ReactDOM.createPortal(
         <Overlay
-          passenger={passenger}
+          passengerName={passengerName}
           ID={checkInID}
           onClose={onClose}
-          onConfirm={onConfirm}
+          onConfirmCheckIn={onConfirmCheckIn}
+          passCheckedIn={passCheckedIn}
+          onUndoCheckIn={onUndoCheckIn}
         />,
         portalElement
       )}

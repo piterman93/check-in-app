@@ -9,17 +9,49 @@ const flightSlice = createSlice({
   initialState,
   reducers: {
     passengerCheckIn(state, action) {
-      // const passenger = action.payload.passenger;
-      // const seatNumber = action.payload.checkInID;
-      // console.log(state);
-      // const passengerToUpdateID = state.passengers.findIndex(
-      //   (pass) => pass.name === passenger
-      // );
-      // console.log(passengerToUpdateID);
-      // passengerToUpdateID.seat = state.passengers.seat = seatNumber;
+      const clickedPassenger = action.payload.passengerName;
+      const seatNumber = action.payload.checkInID;
+      const flightNumber = action.payload.flightDetails;
+
+      const newState = [...state];
+
+      const selectedFlight = newState.find(
+        (flight) =>
+          flight.number.toString() === flightNumber[0].number.toString()
+      );
+
+      const selectedPassenger = selectedFlight.passengers.find(
+        (passenger) =>
+          passenger.name.toUpperCase() === clickedPassenger.toUpperCase()
+      );
+      selectedPassenger.seat = seatNumber.toString();
+
+      const newPassengers = { ...selectedFlight.passengers, selectedPassenger };
+      const newFLight = { ...selectedFlight, newPassengers };
+
+      state = { ...state, newFLight };
     },
-    undoCheckIn(state) {
-      // state.passengers.seat = "";
+    undoCheckIn(state, action) {
+      const clickedPassenger = action.payload.passengerName;
+      const flightNumber = action.payload.flightDetails;
+
+      const newState = [...state];
+
+      const selectedFlight = newState.find(
+        (flight) =>
+          flight.number.toString() === flightNumber[0].number.toString()
+      );
+
+      const selectedPassenger = selectedFlight.passengers.find(
+        (passenger) =>
+          passenger.name.toUpperCase() === clickedPassenger.toUpperCase()
+      );
+      selectedPassenger.seat = "";
+
+      const newPassengers = { ...selectedFlight.passengers, selectedPassenger };
+      const newFLight = { ...selectedFlight, newPassengers };
+
+      state = { ...state, newFLight };
     },
   },
 });

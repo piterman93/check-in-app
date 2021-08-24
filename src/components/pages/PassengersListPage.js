@@ -14,8 +14,8 @@ const PassengersListPage = (props) => {
   const [showList, setShowList] = useState(false);
   const [option, setOption] = useState("");
 
-  const formInfo = FormData.filter((data) => data.id === id);
-  const data = formInfo[0];
+  const formInfo = FormData.find((data) => data.id === id);
+  const data = formInfo;
 
   const showListHandler = (data) => {
     setShowList((state) => !state);

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 
 import PlaneSeat from "./PlaneSeat";
@@ -10,17 +10,25 @@ import "../../styles/PlaneGrid.scss";
 
 import { flightActions } from "../../store/flight-slice";
 
-const PlaneGrid = ({ flightDetails, passenger, checkInNeeded }) => {
+const PlaneGrid = ({
+  flightDetails,
+  passengerName,
+  selectedPassengerData,
+  checkInNeeded,
+}) => {
   const [showModal, setShowModal] = useState(false);
   const [checkInID, setCheckInID] = useState("");
+  const [passCheckedIn, setPassCheckedIn] = useState("");
 
-  const row1 = flightDetails[0].seatsRow1;
-  const row2 = flightDetails[0].seatsRow2;
-  const passengers = flightDetails[0].passengers;
+  useEffect(() => {
+    if (checkInNeeded) {
+      if (selectedPassengerData.seat) setCheckInID(selectedPassengerData.seat);
+    }
+  }, [selectedPassengerData, checkInNeeded]);
 
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  const showModalHandler = (id) => {
+  const showCheckInModalHandler = (id) => {
     setCheckInID(id);
     setShowModal(true);
   };
@@ -29,8 +37,27 @@ const PlaneGrid = ({ flightDetails, passenger, checkInNeeded }) => {
     setShowModal(false);
   };
 
-  const confirmCheckInHandler = () => {
-    // dispatch(flightActions.passengerCheckIn({ checkInID, passenger }));
+  const confirmCheckInChangePlaceHandler = () => {
+    dispatch(
+      flightActions.passengerCheckIn({
+        checkInID,
+        passengerName,
+        flightDetails,
+      })
+    );
+    setShowModal(false);
+    setPassCheckedIn(checkInID);
+  };
+
+  const confirmUndoCheckInHandler = () => {
+    dispatch(
+      flightActions.undoCheckIn({
+        passengerName,
+        flightDetails,
+      })
+    );
+    setShowModal(false);
+    setPassCheckedIn("");
   };
 
   const assignClass = (data) => {
@@ -70,6 +97,10 @@ const PlaneGrid = ({ flightDetails, passenger, checkInNeeded }) => {
     if ((!notAvailable, !infant, !wheelchair)) return "available";
   };
 
+  const row1 = flightDetails[0].seatsRow1;
+  const row2 = flightDetails[0].seatsRow2;
+  const passengers = flightDetails[0].passengers;
+
   const seatsRow1 = row1.map((row, i) => {
     let number = i + 1;
     const className = assignClass(number);
@@ -78,8 +109,9 @@ const PlaneGrid = ({ flightDetails, passenger, checkInNeeded }) => {
         key={number}
         id={number}
         className={className}
-        onCheckIn={showModalHandler}
+        onCheckIn={showCheckInModalHandler}
         checkInNeeded={checkInNeeded}
+        passCheckIn={passCheckedIn}
       >
         {number}
       </PlaneSeat>
@@ -93,10 +125,11 @@ const PlaneGrid = ({ flightDetails, passenger, checkInNeeded }) => {
     return (
       <PlaneSeat
         key={number1}
-        id={number}
+        id={number1}
         className={className}
-        onCheckIn={showModalHandler}
+        onCheckIn={showCheckInModalHandler}
         checkInNeeded={checkInNeeded}
+        passCheckIn={passCheckedIn}
       >
         {number1}
       </PlaneSeat>
@@ -108,10 +141,12 @@ const PlaneGrid = ({ flightDetails, passenger, checkInNeeded }) => {
   if (showModal) {
     content = (
       <Modal
-        passenger={passenger}
+        passengerName={passengerName}
         checkInID={checkInID}
         onClose={closeModalHandler}
-        onConfirm={confirmCheckInHandler}
+        onConfirmCheckIn={confirmCheckInChangePlaceHandler}
+        onUndoCheckIn={confirmUndoCheckInHandler}
+        passCheckedIn={passCheckedIn}
       />
     );
   }

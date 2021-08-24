@@ -38,11 +38,21 @@ const useStyles = makeStyles({
   },
 });
 
-export default function FlightDetails({ option, passenger, checkInNeeded }) {
+export default function FlightDetails({
+  option,
+  passengerName,
+  checkInNeeded,
+}) {
   const classes = useStyles();
 
   const flightData = useSelector((state) => state.flight);
   const flightDetails = flightData.filter((data) => data.number === option);
+
+  const passengers = flightDetails[0].passengers;
+
+  const selectedPassengerData = passengers.find(
+    (pass) => pass.name === passengerName
+  );
 
   function createData(number, plane, DEP, ARR, DEP_time, ARR_time) {
     return { number, plane, DEP, ARR, DEP_time, ARR_time };
@@ -103,8 +113,9 @@ export default function FlightDetails({ option, passenger, checkInNeeded }) {
       </Table>
       <PlaneGrid
         flightDetails={flightDetails}
-        passenger={passenger}
+        passengerName={passengerName}
         checkInNeeded={checkInNeeded}
+        selectedPassengerData={selectedPassengerData}
       />
     </TableContainer>
   );

@@ -8,8 +8,8 @@ import Card from "../UI/Card";
 const id = 5;
 
 const AdminServicePage = (props) => {
-  const formInfo = FormData.filter((data) => data.id === id);
-  const data = formInfo[0];
+  const formInfo = FormData.find((data) => data.id === id);
+  const data = formInfo;
 
   return (
     <React.Fragment>
