@@ -17,6 +17,7 @@ export const FlightData = [
         passport: "AAA111",
         seat: "",
         specServ: {},
+        specMeal: {},
       },
       {
         id: 2,
@@ -25,6 +26,7 @@ export const FlightData = [
         passport: "BBB111",
         seat: "7",
         specServ: {},
+        specMeal: {},
       },
       {
         id: 3,
@@ -33,6 +35,7 @@ export const FlightData = [
         passport: "CCC111",
         seat: "66",
         specServ: { INF: true },
+        specMeal: {},
       },
       {
         id: 4,
@@ -41,6 +44,7 @@ export const FlightData = [
         passport: "DDD111",
         seat: "",
         specServ: {},
+        specMeal: {},
       },
       {
         id: 5,
@@ -49,6 +53,7 @@ export const FlightData = [
         passport: "EEE111",
         seat: "72",
         specServ: { WCH: true },
+        specMeal: {},
       },
       {
         id: 6,
@@ -57,6 +62,7 @@ export const FlightData = [
         passport: "FFF111",
         seat: "12",
         specServ: {},
+        specMeal: { SPEC: "Vegan" },
       },
       {
         id: 7,
@@ -65,6 +71,7 @@ export const FlightData = [
         passport: "GGG111",
         seat: "",
         specServ: {},
+        specMeal: {},
       },
       {
         id: 8,
@@ -73,6 +80,7 @@ export const FlightData = [
         passport: "HHH111",
         seat: "19",
         specServ: {},
+        specMeal: {},
       },
     ],
     seatsRow1: [
@@ -104,6 +112,7 @@ export const FlightData = [
         passport: "AAA111",
         seat: "",
         specServ: {},
+        specMeal: {},
       },
       {
         id: 2,
@@ -112,6 +121,7 @@ export const FlightData = [
         passport: "BBB111",
         seat: "7",
         specServ: {},
+        specMeal: { SPEC: "Gluten allergic" },
       },
       {
         id: 3,
@@ -120,6 +130,7 @@ export const FlightData = [
         passport: "CCC111",
         seat: "54",
         specServ: { INF: true },
+        specMeal: {},
       },
       {
         id: 4,
@@ -128,6 +139,7 @@ export const FlightData = [
         passport: "DDD111",
         seat: "",
         specServ: {},
+        specMeal: {},
       },
       {
         id: 5,
@@ -136,6 +148,7 @@ export const FlightData = [
         passport: "EEE111",
         seat: "64",
         specServ: { WCH: true },
+        specMeal: {},
       },
       {
         id: 6,
@@ -144,6 +157,7 @@ export const FlightData = [
         passport: "FFF111",
         seat: "14",
         specServ: {},
+        specMeal: {},
       },
       {
         id: 7,
@@ -152,6 +166,7 @@ export const FlightData = [
         passport: "GGG111",
         seat: "",
         specServ: {},
+        specMeal: {},
       },
       {
         id: 8,
@@ -160,6 +175,7 @@ export const FlightData = [
         passport: "HHH111",
         seat: "3",
         specServ: {},
+        specMeal: {},
       },
     ],
     seatsRow1: [

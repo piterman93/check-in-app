@@ -22,7 +22,8 @@ const PlaneGrid = ({
 
   useEffect(() => {
     if (checkInNeeded) {
-      if (selectedPassengerData.seat) setCheckInID(selectedPassengerData.seat);
+      if (selectedPassengerData.seat)
+        setPassCheckedIn(selectedPassengerData.seat);
     }
   }, [selectedPassengerData, checkInNeeded]);
 
@@ -64,12 +65,14 @@ const PlaneGrid = ({
     let newPassengerNotAvailable;
     let newPassengerInfant;
     let newPassengerWheelchair;
+    let newPassengerSpecialMeal;
 
     const notAvailable = passengers.find(
       (passenger) =>
         passenger.seat === data.toString() &&
         !passenger.specServ.INF &&
-        !passenger.specServ.WCH
+        !passenger.specServ.WCH &&
+        !passenger.specMeal.SPEC
     );
     if (notAvailable) {
       newPassengerNotAvailable = {
@@ -94,7 +97,15 @@ const PlaneGrid = ({
       newPassengerWheelchair = { ...wheelchair, className: "wheelchair" };
       return newPassengerWheelchair.className;
     }
-    if ((!notAvailable, !infant, !wheelchair)) return "available";
+    const specialMeal = passengers.find(
+      (passenger) =>
+        passenger.seat === data.toString() && passenger.specMeal.SPEC
+    );
+    if (specialMeal) {
+      newPassengerSpecialMeal = { ...specialMeal, className: "specialMeal" };
+      return newPassengerSpecialMeal.className;
+    }
+    if ((!notAvailable, !infant, !wheelchair, !specialMeal)) return "available";
   };
 
   const row1 = flightDetails[0].seatsRow1;

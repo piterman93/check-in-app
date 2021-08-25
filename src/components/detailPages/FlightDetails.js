@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -69,8 +69,24 @@ export default function FlightDetails({
     )
   );
 
+  const tittleContent = checkInNeeded ? (
+    <h2>
+      {" "}
+      Check in panel for a passenger : {passengerName}, checked in with seat
+      number :{" "}
+      {selectedPassengerData.seat ? (
+        selectedPassengerData.seat
+      ) : (
+        <span style={{ color: "red" }}>not checked in yet</span>
+      )}
+    </h2>
+  ) : (
+    <h2> Flight details for a flight number : {flightDetails[0].number} </h2>
+  );
+
   return (
     <TableContainer component={Paper} className={classes.table__container}>
+      <div className="aside__tittle">{tittleContent}</div>
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>

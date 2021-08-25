@@ -12,7 +12,7 @@ import { useSelector } from "react-redux";
 
 const useStyles = makeStyles({
   table: {
-    width: 1200,
+    width: 1000,
   },
   table__container: {
     position: "absolute",
@@ -41,10 +41,9 @@ export default function PassengerList({ option }) {
 
   const passengersData = flightData.filter((data) => data.number === option);
   const newPassengersData = passengersData[0].passengers;
-  // console.log(newPassengersData);
 
-  function createData(name, birthday, passport, seat, INF, WCH) {
-    return { name, birthday, passport, seat, INF, WCH };
+  function createData(name, birthday, passport, seat, INF, WCH, SPEC) {
+    return { name, birthday, passport, seat, INF, WCH, SPEC };
   }
 
   const rows1 = newPassengersData.map((row) =>
@@ -54,12 +53,20 @@ export default function PassengerList({ option }) {
       row.passport,
       row.seat ? row.seat : "-",
       row.specServ.INF ? <span className={classes.span}>YES</span> : "-",
-      row.specServ.WCH ? <span className={classes.span}>YES</span> : "-"
+      row.specServ.WCH ? <span className={classes.span}>YES</span> : "-",
+      row.specMeal.SPEC ? (
+        <span className={classes.span}>{row.specMeal.SPEC}</span>
+      ) : (
+        "-"
+      )
     )
   );
 
   return (
     <TableContainer component={Paper} className={classes.table__container}>
+      <div className="aside__tittle">
+        <h2>Passengers list for a flight number: {option}</h2>
+      </div>
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
@@ -81,6 +88,9 @@ export default function PassengerList({ option }) {
             <TableCell className={classes.title} align="center">
               Wheelchair
             </TableCell>
+            <TableCell className={classes.title} align="center">
+              Special Meal
+            </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -96,6 +106,7 @@ export default function PassengerList({ option }) {
               <TableCell align="center">{row.seat}</TableCell>
               <TableCell align="center">{row.INF}</TableCell>
               <TableCell align="center">{row.WCH}</TableCell>
+              <TableCell align="center">{row.SPEC}</TableCell>
             </TableRow>
           ))}
         </TableBody>

@@ -19,6 +19,10 @@ const PlaneGridLegend = (props) => {
         <div></div>
         <span> - seat for a passenger with wheelchair</span>
       </div>
+      <div className="grid__legend_item">
+        <div></div>
+        <span> - seat for a passenger with special meal</span>
+      </div>
     </div>
   );
 };
