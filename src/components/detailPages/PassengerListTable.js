@@ -36,8 +36,8 @@ export default function PassengerListTable({
   const rows1 = tableData.map((row) =>
     createData(
       row.name,
-      row.birthday,
-      row.passport,
+      row.birthday ? row.birthday : "-",
+      row.passport ? row.passport : "-",
       row.seat ? row.seat : "-",
       row.specServ.INF ? <span className={classes.span}>YES</span> : "-",
       row.specServ.WCH ? <span className={classes.span}>YES</span> : "-",
