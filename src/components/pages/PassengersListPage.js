@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { FormData } from "../../formData";
-import { FlightData } from "../../flightData";
 
 import PassengerList from "../detailPages/PassengerList";
 
