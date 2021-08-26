@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, Fragment } from "react";
 import { useDispatch } from "react-redux";
 
 import PlaneSeat from "./PlaneSeat";
@@ -147,23 +147,18 @@ const PlaneGrid = ({
     );
   });
 
-  let content;
-
-  if (showModal) {
-    content = (
-      <Modal
-        passengerName={passengerName}
-        checkInID={checkInID}
-        onClose={closeModalHandler}
-        onConfirmCheckIn={confirmCheckInChangePlaceHandler}
-        onUndoCheckIn={confirmUndoCheckInHandler}
-        passCheckedIn={passCheckedIn}
-      />
-    );
-  }
-
-  if (!showModal) {
-    content = (
+  const content = (
+    <Fragment>
+      {showModal && (
+        <Modal
+          passengerName={passengerName}
+          checkInID={checkInID}
+          onClose={closeModalHandler}
+          onConfirmCheckIn={confirmCheckInChangePlaceHandler}
+          onUndoCheckIn={confirmUndoCheckInHandler}
+          passCheckedIn={passCheckedIn}
+        />
+      )}
       <div className="grid__control">
         <div className="grid__container">
           <p>Plane Front</p>
@@ -175,8 +170,8 @@ const PlaneGrid = ({
         </div>
         <PlaneGridLegend />
       </div>
-    );
-  }
+    </Fragment>
+  );
 
   return content;
 };
