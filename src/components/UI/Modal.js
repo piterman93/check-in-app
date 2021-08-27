@@ -2,6 +2,7 @@ import { Fragment } from "react";
 import ReactDOM from "react-dom";
 
 import "../../styles/Modal.scss";
+import "../../index.scss";
 
 const Backdrop = ({ onClose }) => {
   return <div className="backdrop" onClick={onClose}></div>;
@@ -32,7 +33,7 @@ const Overlay = ({
         </h2>
       )}
 
-      <div className="overlay__actions">
+      <div className="button__actions">
         <button type="button" onClick={onClose}>
           Close
         </button>

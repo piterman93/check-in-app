@@ -8,7 +8,9 @@ const PageForm = ({ name, title, onClick }) => {
   const [selectFlight, setSelectFlight] = useState(FlightData[0].number);
   const [selectPassenger, setSelectPassenger] = useState("");
 
-  const passengers = [...FlightData[0].passengers, ...FlightData[1].passengers];
+  const flight = FlightData.find((data) => data.number === selectFlight);
+  const passengers = flight.passengers;
+
   const availablePassenger = passengers.find(
     (pass) => pass.name.toLowerCase() === selectPassenger.toLowerCase()
   );

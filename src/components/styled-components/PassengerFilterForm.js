@@ -1,5 +1,7 @@
 import { useState } from "react";
+
 import "../../styles/PassengerFilterForm.scss";
+import "../../index.scss";
 
 import Card from "../UI/Card";
 
@@ -98,7 +100,7 @@ const PassengerFilterForm = ({ onFilter, onClear }) => {
           ></input>
           <label htmlFor="specMeals">Special Meals</label>
         </div>
-        <div className="filter__actions">
+        <div className="button__actions">
           <button
             className="submit"
             disabled={btnDisabled}

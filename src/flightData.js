@@ -30,7 +30,7 @@ export const FlightData = [
       },
       {
         id: 3,
-        name: " Halina Maniak",
+        name: "Halina Maniak",
         birthday: "19-04-1965",
         passport: "CCC111",
         seat: "66",
@@ -107,7 +107,7 @@ export const FlightData = [
     passengers: [
       {
         id: 1,
-        name: "Marcin Nowak",
+        name: "Piotr Maniak",
         birthday: "19-04-1993",
         passport: "AAA111",
         seat: "",
@@ -125,7 +125,7 @@ export const FlightData = [
       },
       {
         id: 3,
-        name: " Pawel Mol",
+        name: "Pawel Mol",
         birthday: "19-04-1965",
         passport: "CCC111",
         seat: "54",
@@ -170,7 +170,7 @@ export const FlightData = [
       },
       {
         id: 8,
-        name: "Marcin Stec",
+        name: "Marcin Nowak",
         birthday: "19-04-1973",
         passport: "HHH111",
         seat: "3",

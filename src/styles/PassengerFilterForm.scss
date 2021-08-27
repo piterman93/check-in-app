@@ -13,30 +13,4 @@
       margin-left: 0.5rem;
     }
   }
-  & .filter__actions {
-    margin-top: 2rem;
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    & button {
-      font: inherit;
-      color: #5a1a01;
-      cursor: pointer;
-      background-color: transparent;
-      border: 1px solid #5a1a01;
-      border-radius: 25px;
-      padding: 0.5rem 1rem;
-      &:disabled {
-        cursor: not-allowed;
-      }
-      &:hover {
-        background-color: #882701;
-        color: white;
-      }
-    }
-    .submit {
-      background-color: #5a1a01;
-      color: white;
-    }
-  }
 }
