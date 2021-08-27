@@ -54,22 +54,10 @@ const addService = (state, action) => {
     } else if (specialSeat === "Passenger with wheelchair") {
       selectedPassenger.specServ.WCH = true;
     }
-  } else if (specialMeal) {
+  }
+
+  if (specialMeal) {
     selectedPassenger.specMeal = { SPEC: specialMeal.toString() };
-  } else if (specialMeal && specialSeat) {
-    if (specialSeat === "Passenger with infant") {
-      selectedPassenger = {
-        ...selectedPassenger,
-        specServ: { INF: true },
-        specMeal: { SPEC: specialMeal.toString() },
-      };
-    } else if (specialSeat === "Passenger with wheelchair") {
-      selectedPassenger = {
-        ...selectedPassenger,
-        specServ: { WCH: true },
-        specMeal: { SPEC: specialMeal.toString() },
-      };
-    }
   }
 
   const newPassengers = { ...selectedFlight.passengers, selectedPassenger };

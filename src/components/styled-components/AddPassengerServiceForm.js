@@ -46,6 +46,7 @@ const useStyles = makeStyles((theme) => ({
 const AddPassengerServiceForm = ({ option, passengerName }) => {
   const [specialSeat, setSpecialSeat] = useState("");
   const [specialMeal, setSpecialMeal] = useState("");
+  const [showSuccessNotification, setShowSuccessNotification] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -72,6 +73,7 @@ const AddPassengerServiceForm = ({ option, passengerName }) => {
     );
     setSpecialSeat("");
     setSpecialMeal("");
+    setShowSuccessNotification(true);
   };
 
   return (
@@ -79,48 +81,59 @@ const AddPassengerServiceForm = ({ option, passengerName }) => {
       <div className="aside__tittle">
         <h2>Add special service for a passenger : {passengerName}</h2>
       </div>
-      <div className={classes.inputControl}>
-        <FormControl variant="outlined" className={classes.formControl}>
-          <InputLabel id="demo-simple-select-outlined-label">
-            Special seat request
-          </InputLabel>
-          <Select
-            labelId="demo-simple-select-outlined-label"
-            id="demo-simple-select-outlined"
-            value={specialSeat}
-            onChange={seatChangeHandler}
-            label="Special seat request"
-          >
-            <MenuItem value="">
-              <em>None</em>
-            </MenuItem>
-            <MenuItem value={"Passenger with infant"}>
-              Passenger with infant
-            </MenuItem>
-            <MenuItem value={"Passenger with wheelchair"}>
-              Passenger with wheelchair
-            </MenuItem>
-          </Select>
-        </FormControl>
-        <form className={classes.root} noValidate autoComplete="off">
-          <TextField
-            id="outlined-basic"
-            label="Special meal request"
-            variant="outlined"
-            value={specialMeal}
-            onChange={mealChangeHandler}
-          />
-        </form>
-        <div className="button__actions">
-          <button
-            className="submit"
-            disabled={!specialMeal && !specialSeat}
-            onClick={submitServiceHandler}
-          >
-            Submit
-          </button>
+      {!showSuccessNotification && (
+        <div className={classes.inputControl}>
+          <FormControl variant="outlined" className={classes.formControl}>
+            <InputLabel id="demo-simple-select-outlined-label">
+              Special seat request
+            </InputLabel>
+            <Select
+              labelId="demo-simple-select-outlined-label"
+              id="demo-simple-select-outlined"
+              value={specialSeat}
+              onChange={seatChangeHandler}
+              label="Special seat request"
+            >
+              <MenuItem value="">
+                <em>None</em>
+              </MenuItem>
+              <MenuItem value={"Passenger with infant"}>
+                Passenger with infant
+              </MenuItem>
+              <MenuItem value={"Passenger with wheelchair"}>
+                Passenger with wheelchair
+              </MenuItem>
+            </Select>
+          </FormControl>
+          <form className={classes.root} noValidate autoComplete="off">
+            <TextField
+              id="outlined-basic"
+              label="Special meal request"
+              variant="outlined"
+              value={specialMeal}
+              onChange={mealChangeHandler}
+            />
+          </form>
+          <div className="button__actions">
+            <button
+              className="submit"
+              disabled={!specialMeal && !specialSeat}
+              onClick={submitServiceHandler}
+            >
+              Submit
+            </button>
+          </div>
         </div>
-      </div>
+      )}
+      {showSuccessNotification && (
+        <div className={classes.inputControl}>
+          <h3> Services updated successfully! </h3>
+          <p style={{ marginTop: "2rem" }}>
+            {" "}
+            You can check modifications on Passengers List Page
+          </p>
+        </div>
+      )}
     </Card>
   );
 };

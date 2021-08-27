@@ -2,7 +2,7 @@ import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 
 import StartPage from "./StartPage";
-import CheckInPage from "./CheckInPage";
+import CheckInPage from "./CheckinPage";
 import AddPassengerServicePage from "./AddPassengerServicePage";
 import AdminServicePage from "./AdminServicePage";
 import PassengersListPage from "./PassengersListPage";

@@ -21,6 +21,7 @@ const authSlice = createSlice({
       state.isAdmin = true;
       state.isOnSite = true;
       localStorage.setItem("logged", state.isOnSite);
+      localStorage.setItem("admin", state.isAdmin);
     },
     logout(state) {
       state.isLogged = false;
@@ -30,6 +31,8 @@ const authSlice = createSlice({
     setLocalStorage(state) {
       const login = localStorage.getItem("logged");
       state.isOnSite = login;
+      const admin = localStorage.getItem("admin");
+      state.isAdmin = admin;
     },
   },
 });

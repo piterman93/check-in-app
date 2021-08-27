@@ -57,7 +57,8 @@ export default function PassengerList({ option }) {
       (pass) => pass.specServ.WCH && data.wheelchair
     );
     const passengersWithSpecialMeal = newPassengersData.filter(
-      (pass) => pass.specMeal.SPEC && data.specialMeal
+      (pass) =>
+        pass.specMeal.SPEC && pass.specMeal.SPEC !== "-" && data.specialMeal
     );
 
     const filteredData = [

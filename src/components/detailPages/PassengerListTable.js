@@ -41,7 +41,7 @@ export default function PassengerListTable({
       row.seat ? row.seat : "-",
       row.specServ.INF ? <span className={classes.span}>YES</span> : "-",
       row.specServ.WCH ? <span className={classes.span}>YES</span> : "-",
-      row.specMeal.SPEC ? (
+      row.specMeal.SPEC && row.specMeal.SPEC !== "-" ? (
         <span className={classes.span}>{row.specMeal.SPEC}</span>
       ) : (
         "-"

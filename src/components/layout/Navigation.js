@@ -25,7 +25,7 @@ const Navigation = (props) => {
           </li>
           {isAdmin && (
             <li>
-              <NavLink to="/admin-changes">Change.... as Admin</NavLink>
+              <NavLink to="/admin-changes">Admin Panel for Changes</NavLink>
             </li>
           )}
         </ul>
