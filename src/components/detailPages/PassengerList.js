@@ -32,7 +32,7 @@ export default function PassengerList({ option }) {
 
   const classes = useStyles();
 
-  const flightData = useSelector((state) => state.flight);
+  const flightData = useSelector((state) => state.flight.flights);
   const passengersData = flightData.filter((data) => data.number === option);
   const newPassengersData = passengersData[0].passengers;
 

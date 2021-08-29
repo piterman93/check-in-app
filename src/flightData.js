@@ -16,8 +16,8 @@ export const FlightData = [
         birthday: "19-04-1993",
         passport: "AAA111",
         seat: "",
-        specServ: {},
-        specMeal: {},
+        specServ: { INF: false, WCH: false },
+        specMeal: { SPEC: "" },
       },
       {
         id: 2,
@@ -25,8 +25,8 @@ export const FlightData = [
         birthday: "19-04-1998",
         passport: "",
         seat: "7",
-        specServ: {},
-        specMeal: {},
+        specServ: { INF: false, WCH: false },
+        specMeal: { SPEC: "" },
       },
       {
         id: 3,
@@ -35,7 +35,7 @@ export const FlightData = [
         passport: "CCC111",
         seat: "66",
         specServ: { INF: true },
-        specMeal: {},
+        specMeal: { SPEC: "" },
       },
       {
         id: 4,
@@ -43,8 +43,8 @@ export const FlightData = [
         birthday: "19-04-1967",
         passport: "DDD111",
         seat: "",
-        specServ: {},
-        specMeal: {},
+        specServ: { INF: false, WCH: false },
+        specMeal: { SPEC: "" },
       },
       {
         id: 5,
@@ -53,7 +53,7 @@ export const FlightData = [
         passport: "EEE111",
         seat: "72",
         specServ: { WCH: true },
-        specMeal: {},
+        specMeal: { SPEC: "" },
       },
       {
         id: 6,
@@ -61,7 +61,7 @@ export const FlightData = [
         birthday: "19-04-2020",
         passport: "FFF111",
         seat: "12",
-        specServ: {},
+        specServ: { INF: false, WCH: false },
         specMeal: { SPEC: "Vegan" },
       },
       {
@@ -70,8 +70,8 @@ export const FlightData = [
         birthday: "19-04-1993",
         passport: "GGG111",
         seat: "",
-        specServ: {},
-        specMeal: {},
+        specServ: { INF: false, WCH: false },
+        specMeal: { SPEC: "" },
       },
       {
         id: 8,
@@ -79,8 +79,8 @@ export const FlightData = [
         birthday: "19-04-1973",
         passport: "HHH111",
         seat: "19",
-        specServ: {},
-        specMeal: {},
+        specServ: { INF: false, WCH: false },
+        specMeal: { SPEC: "" },
       },
     ],
     seatsRow1: [
@@ -111,8 +111,8 @@ export const FlightData = [
         birthday: "19-04-1993",
         passport: "AAA111",
         seat: "",
-        specServ: {},
-        specMeal: {},
+        specServ: { INF: false, WCH: false },
+        specMeal: { SPEC: "" },
       },
       {
         id: 2,
@@ -120,7 +120,7 @@ export const FlightData = [
         birthday: "19-04-1998",
         passport: "BBB111",
         seat: "7",
-        specServ: {},
+        specServ: { INF: false, WCH: false },
         specMeal: { SPEC: "Gluten allergic" },
       },
       {
@@ -130,7 +130,7 @@ export const FlightData = [
         passport: "CCC111",
         seat: "54",
         specServ: { INF: true },
-        specMeal: {},
+        specMeal: { SPEC: "" },
       },
       {
         id: 4,
@@ -138,8 +138,8 @@ export const FlightData = [
         birthday: "19-04-1967",
         passport: "DDD111",
         seat: "",
-        specServ: {},
-        specMeal: {},
+        specServ: { INF: false, WCH: false },
+        specMeal: { SPEC: "" },
       },
       {
         id: 5,
@@ -148,7 +148,7 @@ export const FlightData = [
         passport: "EEE111",
         seat: "64",
         specServ: { WCH: true },
-        specMeal: {},
+        specMeal: { SPEC: "" },
       },
       {
         id: 6,
@@ -156,8 +156,8 @@ export const FlightData = [
         birthday: "19-04-2020",
         passport: "",
         seat: "14",
-        specServ: {},
-        specMeal: {},
+        specServ: { INF: false, WCH: false },
+        specMeal: { SPEC: "" },
       },
       {
         id: 7,
@@ -165,8 +165,8 @@ export const FlightData = [
         birthday: "19-04-1993",
         passport: "GGG111",
         seat: "",
-        specServ: {},
-        specMeal: {},
+        specServ: { INF: false, WCH: false },
+        specMeal: { SPEC: "" },
       },
       {
         id: 8,
@@ -174,8 +174,8 @@ export const FlightData = [
         birthday: "19-04-1973",
         passport: "HHH111",
         seat: "3",
-        specServ: {},
-        specMeal: {},
+        specServ: { INF: false, WCH: false },
+        specMeal: { SPEC: "" },
       },
     ],
     seatsRow1: [

@@ -1,6 +1,9 @@
 import React from "react";
 
-import { useSelector } from "react-redux";
+// import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
+// import { flightActions } from "./store/flight-slice";
 
 import Layout from "./components/layout/Layout";
 import LoginPage from "./components/pages/LoginPage";
@@ -8,6 +11,7 @@ import LoginPage from "./components/pages/LoginPage";
 function App() {
   const isLogged = useSelector((state) => state.auth.isLogged);
   const isOnSite = useSelector((state) => state.auth.isOnSite);
+
   return (
     <React.Fragment>
       {!isLogged && !isOnSite && <LoginPage />}

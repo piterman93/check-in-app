@@ -2,14 +2,15 @@ import { createSlice } from "@reduxjs/toolkit";
 
 import { FlightData } from "../flightData";
 
-const initialState = FlightData;
+const initialState = { flights: [], isLoading: false };
+// const initialState = FlightData;
 
 const checkInOrUndoCheckIn = (state, action) => {
   const clickedPassenger = action.payload.passengerName;
   const seatNumber = action.payload.checkInID ? action.payload.checkInID : "";
   const flightNumber = action.payload.flightDetails;
 
-  const newState = [...state];
+  const newState = [...state.flights];
 
   const selectedFlight = newState.find(
     (flight) => flight.number.toString() === flightNumber[0].number.toString()
@@ -37,7 +38,7 @@ const addService = (state, action) => {
     ? action.payload.specialMeal
     : "";
 
-  const newState = [...state];
+  const newState = [...state.flights];
 
   const selectedFlight = newState.find(
     (flight) => flight.number.toString() === flightNumber[0].number.toString()
@@ -72,7 +73,7 @@ const doAdminModification = (state, action) => {
   const passengerPassport = action.payload.passPassport;
   const flightNumber = action.payload.flightDetails;
 
-  const newState = [...state];
+  const newState = [...state.flights];
 
   const selectedFlight = newState.find(
     (flight) => flight.number.toString() === flightNumber[0].number.toString()
@@ -100,6 +101,12 @@ const flightSlice = createSlice({
   name: "flight",
   initialState,
   reducers: {
+    getFlightData(state, action) {
+      state.flights = action.payload;
+    },
+    toggleLoading(state) {
+      state.isLoading = !state.isLoading;
+    },
     passengerCheckIn(state, action) {
       checkInOrUndoCheckIn(state, action);
     },

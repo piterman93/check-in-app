@@ -45,7 +45,7 @@ export default function FlightDetails({
 }) {
   const classes = useStyles();
 
-  const flightData = useSelector((state) => state.flight);
+  const flightData = useSelector((state) => state.flight.flights);
   const flightDetails = flightData.filter((data) => data.number === option);
 
   const passengers = flightDetails[0].passengers;
