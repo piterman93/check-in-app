@@ -1,6 +1,6 @@
 import "../../styles/StartPage.scss";
 
-const StartPage = (props) => {
+const StartPage = () => {
   return (
     <div className="section__start">
       <h1>Welcome to a Check-in application!</h1>

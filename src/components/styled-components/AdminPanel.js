@@ -51,8 +51,8 @@ const AdminPanel = ({ option, passengerName }) => {
 
   const classes = useStyles();
 
-  // const flightData = useSelector((state) => state.flight);
-  // const flightDetails = flightData.filter((data) => data.number === option);
+  const flightData = useSelector((state) => state.flight);
+  const flightDetails = flightData.filter((data) => data.number === option);
 
   const nameChangeHandler = (e) => {
     setPassName(e.target.value);
@@ -64,19 +64,21 @@ const AdminPanel = ({ option, passengerName }) => {
     setPassPassport(e.target.value);
   };
 
-  const submitChangesHandler = () => {
-    // dispatch(
-    //   flightActions.addSpecialService({
-    //     passengerName,
-    //     flightDetails,
-    //     specialSeat,
-    //     specialMeal,
-    //   })
-    // );
+  const submitChangesHandler = (e) => {
+    e.preventDefault();
+    dispatch(
+      flightActions.adminModification({
+        passengerName,
+        passName,
+        passDOB,
+        passPassport,
+        flightDetails,
+      })
+    );
     setPassName("");
     setPassDOB("");
     setPassPassport("");
-    // setShowSuccessNotification(true);
+    setShowSuccessNotification(true);
   };
 
   return (
@@ -86,7 +88,12 @@ const AdminPanel = ({ option, passengerName }) => {
       </div>
       {!showSuccessNotification && (
         <div className={classes.inputControl}>
-          <form className={classes.root} noValidate autoComplete="off">
+          <form
+            className={classes.root}
+            noValidate
+            autoComplete="off"
+            onSubmit={submitChangesHandler}
+          >
             <TextField
               id="outlined-basic"
               label="Change passenger name"
@@ -108,16 +115,16 @@ const AdminPanel = ({ option, passengerName }) => {
               value={passPassport}
               onChange={passportChangeHandler}
             />
+
+            <div className="button__actions">
+              <button
+                className="submit"
+                disabled={!passName && !passDOB && !passPassport}
+              >
+                Submit
+              </button>
+            </div>
           </form>
-          <div className="button__actions">
-            <button
-              className="submit"
-              disabled={!passName && !passDOB && !passPassport}
-              onClick={submitChangesHandler}
-            >
-              Submit
-            </button>
-          </div>
         </div>
       )}
       {showSuccessNotification && (

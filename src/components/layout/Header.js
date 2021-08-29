@@ -7,7 +7,7 @@ import "../../styles/Header.scss";
 
 import { authActions } from "../../store/auth-slice";
 
-const Header = (props) => {
+const Header = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 

@@ -11,11 +11,12 @@ import Card from "../UI/Card";
 
 const id = 1;
 
-const CheckInPage = (props) => {
+const CheckInPage = () => {
   const [flightOption, setFlightOption] = useState("");
   const [passengerName, setPassengerName] = useState("");
 
   const showTable = useSelector((state) => state.showNavTable.showTable);
+
   const dispatch = useDispatch();
 
   const checkInNeeded = true;

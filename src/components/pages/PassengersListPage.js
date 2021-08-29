@@ -12,7 +12,7 @@ import Card from "../UI/Card";
 
 const id = 3;
 
-const PassengersListPage = (props) => {
+const PassengersListPage = () => {
   const [option, setOption] = useState("");
 
   const showTable = useSelector((state) => state.showNavTable.showTable);

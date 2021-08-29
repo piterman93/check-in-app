@@ -8,7 +8,7 @@ import AdminServicePage from "./AdminServicePage";
 import PassengersListPage from "./PassengersListPage";
 import FlightDetailsPage from "./FlightDetailsPage";
 
-const SectionPage = (props) => {
+const SectionPage = () => {
   return (
     <React.Fragment>
       <Switch>

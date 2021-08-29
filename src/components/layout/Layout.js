@@ -7,7 +7,7 @@ import Header from "./Header";
 import Navigation from "./Navigation";
 import Footer from "./Footer";
 
-const Layout = (props) => {
+const Layout = () => {
   return (
     <div className="app">
       <header className="header">

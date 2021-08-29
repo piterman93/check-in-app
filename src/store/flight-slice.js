@@ -65,6 +65,37 @@ const addService = (state, action) => {
   state = { ...state, newFlight };
 };
 
+const doAdminModification = (state, action) => {
+  const passengerName = action.payload.passengerName;
+  const newPassengerName = action.payload.passName;
+  const passengerDOB = action.payload.passDOB;
+  const passengerPassport = action.payload.passPassport;
+  const flightNumber = action.payload.flightDetails;
+
+  const newState = [...state];
+
+  const selectedFlight = newState.find(
+    (flight) => flight.number.toString() === flightNumber[0].number.toString()
+  );
+
+  let selectedPassenger = selectedFlight.passengers.find(
+    (passenger) => passenger.name.toUpperCase() === passengerName.toUpperCase()
+  );
+
+  if (newPassengerName) {
+    selectedPassenger.name = newPassengerName;
+  }
+  if (passengerDOB) {
+    selectedPassenger.birthday = passengerDOB;
+  }
+  if (passengerPassport) {
+    selectedPassenger.passport = passengerPassport;
+  }
+  const newPassengers = { ...selectedFlight.passengers, selectedPassenger };
+  const newFlight = { ...selectedFlight, newPassengers };
+  state = { ...state, newFlight };
+};
+
 const flightSlice = createSlice({
   name: "flight",
   initialState,
@@ -77,6 +108,9 @@ const flightSlice = createSlice({
     },
     addSpecialService(state, action) {
       addService(state, action);
+    },
+    adminModification(state, action) {
+      doAdminModification(state, action);
     },
   },
 });
