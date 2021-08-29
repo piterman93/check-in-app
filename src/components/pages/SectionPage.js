@@ -33,6 +33,9 @@ const SectionPage = (props) => {
         <Route path="/admin-changes">
           <AdminServicePage />
         </Route>
+        <Route path="*">
+          <Redirect to="home" />
+        </Route>
       </Switch>
     </React.Fragment>
   );

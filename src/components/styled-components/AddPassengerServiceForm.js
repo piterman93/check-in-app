@@ -62,7 +62,8 @@ const AddPassengerServiceForm = ({ option, passengerName }) => {
     setSpecialMeal(e.target.value);
   };
 
-  const submitServiceHandler = () => {
+  const submitServiceHandler = (e) => {
+    e.preventDefault();
     dispatch(
       flightActions.addSpecialService({
         passengerName,
@@ -105,7 +106,12 @@ const AddPassengerServiceForm = ({ option, passengerName }) => {
               </MenuItem>
             </Select>
           </FormControl>
-          <form className={classes.root} noValidate autoComplete="off">
+          <form
+            className={classes.root}
+            noValidate
+            autoComplete="off"
+            onSubmit={submitServiceHandler}
+          >
             <TextField
               id="outlined-basic"
               label="Special meal request"
@@ -115,11 +121,7 @@ const AddPassengerServiceForm = ({ option, passengerName }) => {
             />
           </form>
           <div className="button__actions">
-            <button
-              className="submit"
-              disabled={!specialMeal && !specialSeat}
-              onClick={submitServiceHandler}
-            >
+            <button className="submit" disabled={!specialMeal && !specialSeat}>
               Submit
             </button>
           </div>

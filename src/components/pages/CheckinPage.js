@@ -1,17 +1,22 @@
 import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { FormData } from "../../formData";
 
 import PageForm from "../styled-components/PageForm";
 import FlightDetails from "../detailPages/FlightDetails";
+
+import { showNavTableActions } from "../../store/showNavTable-slice";
 
 import Card from "../UI/Card";
 
 const id = 1;
 
 const CheckInPage = (props) => {
-  const [showTable, setShowTable] = useState(true);
   const [flightOption, setFlightOption] = useState("");
   const [passengerName, setPassengerName] = useState("");
+
+  const showTable = useSelector((state) => state.showNavTable.showTable);
+  const dispatch = useDispatch();
 
   const checkInNeeded = true;
 
@@ -19,7 +24,7 @@ const CheckInPage = (props) => {
   const data = formInfo;
 
   const showTableHandler = (flight, pass) => {
-    setShowTable(false);
+    dispatch(showNavTableActions.hideTable());
     setFlightOption(flight);
     setPassengerName(pass);
   };

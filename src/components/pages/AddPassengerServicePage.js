@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { FormData } from "../../formData";
 
 import PageForm from "../styled-components/PageForm";
+
+import { showNavTableActions } from "../../store/showNavTable-slice";
 
 import Card from "../UI/Card";
 import AddPassengerServiceForm from "../styled-components/AddPassengerServiceForm";
@@ -9,15 +12,17 @@ import AddPassengerServiceForm from "../styled-components/AddPassengerServiceFor
 const id = 4;
 
 const AddPassengerServicePage = (props) => {
-  const [showTable, setShowTable] = useState(true);
   const [flightOption, setFlightOption] = useState("");
   const [passengerName, setPassengerName] = useState("");
+
+  const showTable = useSelector((state) => state.showNavTable.showTable);
+  const dispatch = useDispatch();
 
   const formInfo = FormData.find((data) => data.id === id);
   const data = formInfo;
 
   const showTableHandler = (flight, pass) => {
-    setShowTable(false);
+    dispatch(showNavTableActions.hideTable());
     setFlightOption(flight);
     setPassengerName(pass);
   };

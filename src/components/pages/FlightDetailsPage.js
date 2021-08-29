@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { FormData } from "../../formData";
 
 import PageForm from "../styled-components/PageForm";
+
+import { showNavTableActions } from "../../store/showNavTable-slice";
 
 import Card from "../UI/Card";
 
@@ -10,15 +13,17 @@ import FlightDetails from "../detailPages/FlightDetails";
 const id = 2;
 
 const FlightDetailsPage = (props) => {
-  const [showTable, setShowTable] = useState(true);
   const [flightOption, setFlightOption] = useState("");
   const [checkInNeeded, setCheckInNeeded] = useState(true);
+
+  const showTable = useSelector((state) => state.showNavTable.showTable);
+  const dispatch = useDispatch();
 
   const formInfo = FormData.find((data) => data.id === id);
   const data = formInfo;
 
   const showTableHandler = (data) => {
-    setShowTable(false);
+    dispatch(showNavTableActions.hideTable());
     setFlightOption(data);
     setCheckInNeeded(false);
   };
