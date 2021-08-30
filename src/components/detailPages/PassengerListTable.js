@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -22,6 +23,7 @@ const useStyles = makeStyles({
 export default function PassengerListTable({
   newPassengersData,
   filteredTableDataPassengers,
+  option,
 }) {
   const classes = useStyles();
 
@@ -84,7 +86,23 @@ export default function PassengerListTable({
             </TableCell>
             <TableCell align="center">{row.birthday}</TableCell>
             <TableCell align="center">{row.passport}</TableCell>
-            <TableCell align="center">{row.seat}</TableCell>
+            <TableCell align="center">
+              {row.seat !== "-" ? (
+                <Link
+                  to={{
+                    pathname: "/check-in",
+                    state: {
+                      option: option,
+                      passengerName: row.name,
+                    },
+                  }}
+                >
+                  {row.seat}
+                </Link>
+              ) : (
+                "-"
+              )}
+            </TableCell>
             <TableCell align="center">{row.INF}</TableCell>
             <TableCell align="center">{row.WCH}</TableCell>
             <TableCell align="center">{row.SPEC}</TableCell>

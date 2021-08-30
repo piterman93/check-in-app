@@ -91,6 +91,7 @@ export default function PassengerList({ option }) {
         <PassengerListTable
           newPassengersData={newPassengersData}
           filteredTableDataPassengers={filteredTableDataPassengers}
+          option={option}
         />
         <PassengerFilterForm
           onFilter={filterTablePassengers}

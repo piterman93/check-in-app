@@ -1,4 +1,5 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -43,15 +44,31 @@ export default function FlightDetails({
   passengerName,
   checkInNeeded,
 }) {
+  const location = useLocation();
+
+  let flightNumber;
+  let passName;
+
+  if (location.state) {
+    flightNumber = location.state.option;
+    passName = location.state.passengerName;
+  }
+  if (location.state === null) {
+    flightNumber = option;
+    passName = passengerName;
+  }
+
   const classes = useStyles();
 
   const flightData = useSelector((state) => state.flight.flights);
-  const flightDetails = flightData.filter((data) => data.number === option);
+  const flightDetails = flightData.filter(
+    (data) => data.number === flightNumber
+  );
 
   const passengers = flightDetails[0].passengers;
 
   const selectedPassengerData = passengers.find(
-    (pass) => pass.name === passengerName
+    (pass) => pass.name === passName
   );
 
   function createData(number, plane, DEP, ARR, DEP_time, ARR_time) {
@@ -72,8 +89,7 @@ export default function FlightDetails({
   const tittleContent = checkInNeeded ? (
     <h2>
       {" "}
-      Check in panel for a passenger : {passengerName}, checked in with seat
-      number :{" "}
+      Check in panel for a passenger : {passName}, checked in with seat number :{" "}
       {selectedPassengerData.seat ? (
         selectedPassengerData.seat
       ) : (
@@ -129,7 +145,7 @@ export default function FlightDetails({
       </Table>
       <PlaneGrid
         flightDetails={flightDetails}
-        passengerName={passengerName}
+        passengerName={passName}
         checkInNeeded={checkInNeeded}
         selectedPassengerData={selectedPassengerData}
       />
