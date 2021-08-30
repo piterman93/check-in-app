@@ -11,7 +11,7 @@ import Card from "../UI/Card";
 
 const id = 5;
 
-const AdminServicePage = (props) => {
+const AdminServicePage = () => {
   const [flightOption, setFlightOption] = useState("");
   const [passengerName, setPassengerName] = useState("");
 

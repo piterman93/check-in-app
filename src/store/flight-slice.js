@@ -1,9 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import { FlightData } from "../flightData";
-
 const initialState = { flights: [], isLoading: false };
-// const initialState = FlightData;
 
 const checkInOrUndoCheckIn = (state, action) => {
   const clickedPassenger = action.payload.passengerName;

@@ -11,7 +11,7 @@ import AddPassengerServiceForm from "../styled-components/AddPassengerServiceFor
 
 const id = 4;
 
-const AddPassengerServicePage = (props) => {
+const AddPassengerServicePage = () => {
   const [flightOption, setFlightOption] = useState("");
   const [passengerName, setPassengerName] = useState("");
 

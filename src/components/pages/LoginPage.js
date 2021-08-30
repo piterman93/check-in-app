@@ -7,7 +7,7 @@ import Card from "../UI/Card";
 import { authActions } from "../../store/auth-slice";
 import { useEffect } from "react";
 
-const LoginPage = (props) => {
+const LoginPage = () => {
   const dispatch = useDispatch();
 
   const staffLoginHandler = () => {

@@ -1,7 +1,7 @@
 import React from "react";
 
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import { flightActions } from "../../store/flight-slice";
 
@@ -62,7 +62,6 @@ const Layout = () => {
       .then((data) => {
         dispatch(flightActions.getFlightData(data));
         dispatch(flightActions.toggleLoading());
-        console.log(data);
       })
       .catch((error) => alert(error.message));
   }, [dispatch]);

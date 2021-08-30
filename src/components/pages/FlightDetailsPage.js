@@ -12,7 +12,7 @@ import FlightDetails from "../detailPages/FlightDetails";
 
 const id = 2;
 
-const FlightDetailsPage = (props) => {
+const FlightDetailsPage = () => {
   const [flightOption, setFlightOption] = useState("");
   const [checkInNeeded, setCheckInNeeded] = useState(true);
 
