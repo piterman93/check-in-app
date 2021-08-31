@@ -60,8 +60,10 @@ const Layout = () => {
 
     getFlightData()
       .then((data) => {
-        dispatch(flightActions.getFlightData(data));
-        dispatch(flightActions.toggleLoading());
+        if (data) {
+          dispatch(flightActions.getFlightData(data));
+          dispatch(flightActions.toggleLoading());
+        }
       })
       .catch((error) => alert(error.message));
   }, [dispatch]);

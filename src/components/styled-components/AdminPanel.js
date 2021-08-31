@@ -25,8 +25,6 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 700,
     minWidth: 400,
     height: "30rem",
-    boxShadow: "0 0 5px 0 black",
-    margin: "2rem",
   },
   selectEmpty: {
     marginTop: theme.spacing(2),
@@ -87,14 +85,16 @@ const AdminPanel = ({ option, passengerName }) => {
         <h2>Admin modifications for a passenger : {passengerName}</h2>
       </div>
       {!showSuccessNotification && (
-        <div className={classes.inputControl}>
-          <form
-            className={classes.root}
-            noValidate
-            autoComplete="off"
-            onSubmit={submitChangesHandler}
-          >
+        <form
+          noValidate
+          autoComplete="off"
+          onSubmit={submitChangesHandler}
+          data-testid="form"
+        >
+          <div className={classes.inputControl}>
             <TextField
+              className={classes.root}
+              data-testid="outlined-basic"
               id="outlined-basic"
               label="Change passenger name"
               variant="outlined"
@@ -102,6 +102,8 @@ const AdminPanel = ({ option, passengerName }) => {
               onChange={nameChangeHandler}
             />
             <TextField
+              className={classes.root}
+              data-testid="outlined-basic"
               id="outlined-basic"
               label="Change passenger date of birth"
               variant="outlined"
@@ -109,6 +111,8 @@ const AdminPanel = ({ option, passengerName }) => {
               onChange={DOBChangeHandler}
             />
             <TextField
+              className={classes.root}
+              data-testid="outlined-basic"
               id="outlined-basic"
               label="Change passenger passport number"
               variant="outlined"
@@ -124,8 +128,8 @@ const AdminPanel = ({ option, passengerName }) => {
                 Submit
               </button>
             </div>
-          </form>
-        </div>
+          </div>
+        </form>
       )}
       {showSuccessNotification && (
         <div className={classes.inputControl}>

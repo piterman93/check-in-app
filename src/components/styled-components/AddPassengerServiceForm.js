@@ -29,8 +29,6 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 700,
     minWidth: 400,
     height: "28rem",
-    boxShadow: "0 0 5px 0 black",
-    margin: "2rem",
   },
   selectEmpty: {
     marginTop: theme.spacing(2),
@@ -107,7 +105,7 @@ const AddPassengerServiceForm = ({ option, passengerName }) => {
                 </MenuItem>
               </Select>
             </FormControl>
-            <form className={classes.root} noValidate autoComplete="off">
+            <div className={classes.root} noValidate autoComplete="off">
               <TextField
                 id="outlined-basic"
                 label="Special meal request"
@@ -115,7 +113,7 @@ const AddPassengerServiceForm = ({ option, passengerName }) => {
                 value={specialMeal}
                 onChange={mealChangeHandler}
               />
-            </form>
+            </div>
             <div className="button__actions">
               <button
                 className="submit"

@@ -25,7 +25,7 @@ const useStyles = makeStyles({
     minWidth: "20vw",
     height: "96%",
     minHeight: "10%",
-    boxShadow: "0 0 5px 0 black",
+    boxShadow: "0 2px 8px rgba(0, 0, 0, 0.5)",
     padding: "2rem",
     display: "flex",
     flexDirection: "column",
