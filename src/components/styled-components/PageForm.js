@@ -22,7 +22,7 @@ const PageForm = ({ name, title, onClick }) => {
     } else {
       setSelectPassenger("");
       return alert(
-        `"There is no ${selectPassenger} on the board, please check it!"`
+        `"There is no ${selectPassenger} on board, please check it!"`
       );
     }
   };

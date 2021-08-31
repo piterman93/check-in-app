@@ -27,6 +27,8 @@ const authSlice = createSlice({
       state.isLogged = false;
       state.isAdmin = false;
       state.isOnSite = false;
+      localStorage.removeItem("admin");
+      localStorage.removeItem("logged");
     },
     setLocalStorage(state) {
       const login = localStorage.getItem("logged");
