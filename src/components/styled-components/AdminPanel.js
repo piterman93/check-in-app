@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
 import { makeStyles } from "@material-ui/core/styles";
-import TextField from "@material-ui/core/TextField";
-
-import { flightActions } from "../../store/flight-slice";
-
-import Card from "../UI/Card";
 
 import "../../index.scss";
+
+import TextField from "@material-ui/core/TextField";
+import Card from "../UI/Card";
+
+import { flightActions } from "../../store/flight-slice";
 
 const useStyles = makeStyles((theme) => ({
   formControl: {

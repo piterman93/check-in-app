@@ -1,6 +1,5 @@
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router";
-
 import { NavLink } from "react-router-dom";
 
 import "../../styles/Header.scss";

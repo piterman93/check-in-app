@@ -1,12 +1,11 @@
 import { NavLink } from "react-router-dom";
-
 import { useSelector, useDispatch } from "react-redux";
-
-import { showNavTableActions } from "../../store/showNavTable-slice";
 
 import "../../styles/Navigation.scss";
 
-const Navigation = (props) => {
+import { showNavTableActions } from "../../store/showNavTable-slice";
+
+const Navigation = () => {
   const isAdmin = useSelector((state) => state.auth.isAdmin);
 
   const dispatch = useDispatch();

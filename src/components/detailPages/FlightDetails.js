@@ -1,6 +1,8 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
+
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
@@ -10,8 +12,6 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 
 import PlaneGrid from "./PlaneGrid";
-
-import { useSelector } from "react-redux";
 
 const useStyles = makeStyles({
   table: {
@@ -88,10 +88,9 @@ export default function FlightDetails({
 
   const tittleContent = checkInNeeded ? (
     <h2>
-      {" "}
       Check in panel for a passenger : {passName}, checked in with seat number :{" "}
       {selectedPassengerData.seat ? (
-        selectedPassengerData.seat
+        <span style={{ color: "red" }}> {selectedPassengerData.seat}</span>
       ) : (
         <span style={{ color: "red" }}>not checked in yet</span>
       )}

@@ -1,13 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import { makeStyles } from "@material-ui/core/styles";
+
 import TableContainer from "@material-ui/core/TableContainer";
 import Paper from "@material-ui/core/Paper";
-
-import { useSelector } from "react-redux";
-
 import PassengerListTable from "./PassengerListTable";
 import PassengerFilterForm from "../styled-components/PassengerFilterForm";
-import { useState } from "react";
 
 const useStyles = makeStyles({
   table__container: {

@@ -1,11 +1,11 @@
 import { useDispatch } from "react-redux";
+import { useEffect } from "react";
 
 import "../../styles/LoginPage.scss";
 
 import Card from "../UI/Card";
 
 import { authActions } from "../../store/auth-slice";
-import { useEffect } from "react";
 
 const LoginPage = () => {
   const dispatch = useDispatch();

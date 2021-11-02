@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { FormData } from "../../formData";
 
 import AdminPanel from "../styled-components/AdminPanel";
 import PageForm from "../styled-components/PageForm";
+import Card from "../UI/Card";
 
 import { showNavTableActions } from "../../store/showNavTable-slice";
-
-import Card from "../UI/Card";
+import { FormData } from "../../formData";
 
 const id = 5;
 

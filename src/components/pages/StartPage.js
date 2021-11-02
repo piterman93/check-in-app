@@ -1,8 +1,8 @@
 import { useSelector } from "react-redux";
 
-import LoadingSpinner from "../styled-components/LoadingSpinner";
-
 import "../../styles/StartPage.scss";
+
+import LoadingSpinner from "../styled-components/LoadingSpinner";
 
 const StartPage = () => {
   const isLoading = useSelector((state) => state.flight.isLoading);

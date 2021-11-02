@@ -1,9 +1,5 @@
-import React from "react";
-
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
-
-import { flightActions } from "../../store/flight-slice";
 
 import "../../styles/Layout.scss";
 
@@ -11,6 +7,8 @@ import SectionPage from "../pages/SectionPage";
 import Header from "./Header";
 import Navigation from "./Navigation";
 import Footer from "./Footer";
+
+import { flightActions } from "../../store/flight-slice";
 
 const Layout = () => {
   const dispatch = useDispatch();

@@ -1,12 +1,11 @@
 import { useEffect, useState, Fragment } from "react";
 import { useDispatch } from "react-redux";
 
+import "../../styles/PlaneGrid.scss";
+
 import PlaneSeat from "./PlaneSeat";
 import PlaneGridLegend from "./PlaneGridLegend";
-
 import Modal from "../UI/Modal";
-
-import "../../styles/PlaneGrid.scss";
 
 import { flightActions } from "../../store/flight-slice";
 

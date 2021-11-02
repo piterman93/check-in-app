@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { FormData } from "../../formData";
 
 import PageForm from "../styled-components/PageForm";
+import Card from "../UI/Card";
+import FlightDetails from "../detailPages/FlightDetails";
 
 import { showNavTableActions } from "../../store/showNavTable-slice";
-
-import Card from "../UI/Card";
-
-import FlightDetails from "../detailPages/FlightDetails";
+import { FormData } from "../../formData";
 
 const id = 2;
 

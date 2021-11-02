@@ -1,18 +1,17 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
 import { makeStyles } from "@material-ui/core/styles";
+
+import "../../index.scss";
+
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import TextField from "@material-ui/core/TextField";
-
-import { flightActions } from "../../store/flight-slice";
-
 import Card from "../UI/Card";
 
-import "../../index.scss";
+import { flightActions } from "../../store/flight-slice";
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
